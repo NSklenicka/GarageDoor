@@ -25,6 +25,8 @@ public:
     //poll door state
     DoorState GetDoorState();
 
+    bool WaitForState(DoorState newState);
+
 signals:
     void DoorStateChanged(DoorState newState);
 

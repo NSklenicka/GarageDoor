@@ -5,7 +5,8 @@ CONFIG -= app_bundle
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        src/main.cpp \
+    src/settings.cpp \
+    src/main.cpp \
     src/outletsensor.cpp \
     src/garagepi.cpp \
     src/doormonitor.cpp
@@ -13,6 +14,7 @@ SOURCES += \
 
 
 HEADERS += \
+    src/settings.h \
     src/outletsensor.h \
     src/garagepi.h \
     src/doormonitor.h \

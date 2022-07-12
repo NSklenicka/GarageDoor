@@ -22,15 +22,18 @@ public:
     //stop polling
     void Stop();
 
+    //wait for a specific state
+    //return false for timeout
+    bool WaitForState(int state);
+
+    OutletState GetOutletState();
+
 signals:
     void OutletStateChanged(OutletState newState);
 
 public slots:
 
 private:
-
-    //poll smart outlet
-    OutletState GetOutletState();
 
     QTimer *timer;
 

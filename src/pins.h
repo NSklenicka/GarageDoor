@@ -3,6 +3,7 @@
 
 #include <QDebug>
 #define cout qDebug()
+#define log qDebug()
 
 #define PIN_OUTLET_SENSOR RPI_V2_GPIO_P1_31
 

@@ -22,14 +22,16 @@ private:
     void OnOutletStateChanged(OutletState newState);
     void OnDoorStateChanged(DoorState newState);
 
+    void HandleError(QString error);
+
     OutletSensor* outletSensor;
     DoorMonitor* doorMonitor;
 
-    //send the close signal, and make sure that it actually happens
-    bool ToggleDoor();
+    //send the toogle door signal, and make sure that it actually happens
+    void ToggleDoor();
 
     //toggle the outlet state, and make it actually happens
-    bool ToggleOutlet(DoorState newState);
+    bool SetOutletState(DoorState newState);
 };
 
 #endif // GARAGEPI_H

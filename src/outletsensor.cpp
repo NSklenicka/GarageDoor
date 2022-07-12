@@ -1,6 +1,9 @@
 #include "outletsensor.h"
 #include <bcm2835.h>
 #include "defines.h"
+#include <QElapsedTimer>
+#include <QThread>
+#include "settings.h"
 
 OutletSensor::OutletSensor(QObject *parent) : QObject(parent)
 {
@@ -23,6 +26,36 @@ void OutletSensor::WaitForStateChanged()
 void OutletSensor::Stop()
 {
     timer->stop();
+}
+
+bool OutletSensor::WaitForState(int state)
+{
+    //get initial state
+    if(state == GetOutletState())
+    {
+        return true;
+    }
+
+    //start polling timer
+    timer->start(OUTLET_POLL_MS);
+
+    //start a timeout timer
+    QElapsedTimer timeoutTimer;
+    timeoutTimer.start();
+
+    while(timer->isActive())//until we stop polling
+    {
+        //check for timeout every n ms
+        QThread::msleep(50);
+        if(timeoutTimer.elapsed() > Settings::OutletToggleTimeout_ms())
+        {
+            timer->stop();
+            return false;
+        }
+    }
+
+    //we're good
+    return true;
 }
 
 OutletState OutletSensor::GetOutletState()
