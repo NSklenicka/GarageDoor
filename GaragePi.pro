@@ -1,14 +1,22 @@
 QT -= gui
 LIBS += -lbcm2835
-CONFIG += c++11 console
+CONFIG += c++17 console
 CONFIG -= app_bundle
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        main.cpp \
-    outletsensor.cpp \
-    garagepi.cpp \
-    doormonitor.cpp
+        src/main.cpp \
+    src/outletsensor.cpp \
+    src/garagepi.cpp \
+    src/doormonitor.cpp
+    src/main.cpp \
+
+
+HEADERS += \
+    src/outletsensor.h \
+    src/garagepi.h \
+    src/doormonitor.h \
+    src/pins.h \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
