@@ -11,6 +11,7 @@ SOURCES += \
     src/garagepi.cpp \
     src/doormonitor.cpp
     src/main.cpp \
+    iotManager/webhookposter.cpp \
 
 
 HEADERS += \
@@ -19,6 +20,7 @@ HEADERS += \
     src/garagepi.h \
     src/doormonitor.h \
     src/pins.h \
+    iotManager/webhookposter.h \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

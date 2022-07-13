@@ -1,7 +1,11 @@
 #include "garagepi.h"
-#include <bcm2835.h>
-#include "defines.h"
 
+//#include <bcm2835.h>
+
+#include "iotManager/webhookposter.h"
+
+//for intellisense
+#include "C:\Users\nick.sklenicka\Desktop\bcm2835.h"
 
 GaragePi::GaragePi(QObject *parent) : QObject(parent)
 {

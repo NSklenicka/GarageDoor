@@ -1,0 +1,3 @@
+[submodule "iotManager"]
+	path = iotManager
+	url = https://github.com/NSklenicka/iotManager.git
